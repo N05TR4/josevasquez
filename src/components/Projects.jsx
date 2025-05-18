@@ -16,7 +16,7 @@ const Projects = () => {
       descriptionKey: "portfolio_description",
       technologies: `${t("tech_react")}, ${t("tech_vite")}, ${t("tech_tailwind")}`,
       githubUrl: "https://github.com/N05TR4/portfolio",
-      liveUrl: "https://josevasquez-portfolio.netlify.app",
+      liveUrl: "https://josevasquez.vercel.app",
       imageUrl: portfolioImg
     },
     {

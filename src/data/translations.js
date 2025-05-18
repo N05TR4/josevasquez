@@ -74,6 +74,60 @@ const translations = {
     "projects_title": "Proyectos",
     "view_project": "Ver Proyecto",
     "view_code": "Ver Código",
+    // Portfolio
+    "portfolio_title": "Portfolio Personal",
+    "portfolio_description": "Portfolio moderno con modo oscuro/claro y soporte para español/inglés, construido con React y Tailwind CSS.",
+    // Codeator
+    "codeator_title": "Codeator - Extractor y exportador de código Online",
+    "codeator_description": "Plataforma para extraer y exportar el código de proyectos usando lenguajes (Python, C#, Java, C++, etc.) para ser utilizado como parte de promts en IA (ChatGPT,Claude, Deepseek, etc).",
+    
+    // Image Processor
+    "image_processor_title": "Procesador de Imágenes",
+    "image_processor_description": "Aplicación para procesamiento de imágenes con filtros, ajustes y transformaciones, usando React, Tailwind CSS, Vite y javascript.",
+    
+    // Club Access System
+    "club_access_title": "Sistema de Control de Acceso",
+    "club_access_description": "Sistema completo para gestión de membresías y control de acceso a un club.",
+    
+    // movilPOS
+    "movilpos_title": "Hades POS - Sistema Punto de Venta Móvil",
+    "movilpos_description": "Aplicación de punto de venta para dispositivos móviles con gestión de inventario y transacciones.",
+
+    // Farmacia Hato Damas
+    "farmacia_title": "Hades POS - Sistema de ventas",
+    "farmacia_description": "Sistema de gestión completo con control de inventario, ventas, proveedores y reportes estadísticos.",
+    
+    // Web Site
+    "website_title": "EZICOM - Sitio Web Corporativo",
+    "website_description": "Plataforma web informativa con diseño responsive, integración CMS y panel administrativo personalizado.",
+    
+    // Tecnologías
+    "tech_react": "React",
+    "tech_dotnet": ".NET",
+    "tech_entity": "Entity Framework",
+    "tech_django": "Django",
+    "tech_sql": "SQL Server",
+    "tech_csharp": "C#",
+    "tech_aspnet": "ASP.NET",
+    "tech_css": "CSS",
+    "tech_html": "HTML",
+    "tech_js": "JavaScript",
+    "tech_git": "Git",
+    "tech_github": "GitHub",
+    "tech_react_native": "React Native",
+    "tech_tailwind": "Tailwind CSS",
+    "tech_vite": "Vite",
+    "tech_python": "Python",
+    "tech_opencv": "OpenCV",
+    "tech_java": "Java",
+    "tech_spring": "Spring Boot",
+    "tech_rfid": "RFID",
+    "tech_mysql": "MySQL",
+    "tech_flutter": "Flutter",
+    "tech_firebase": "Firebase",
+    "tech_bootstrap": "Bootstrap",
+    "tech_postgresql": "PostgreSQL",
+
     
     // Contact
     "contact_title": "Contáctame",
@@ -164,6 +218,60 @@ const translations = {
     "projects_title": "Projects",
     "view_project": "View Project",
     "view_code": "View Code",
+    // Portfolio
+    "portfolio_title": "Personal Portfolio",
+    "portfolio_description": "Modern portfolio with dark/light mode and English/Spanish support, built with React and Tailwind CSS.",
+    
+    // Codeator
+    "codeator_title": "Codeator - Online Compiler",
+    "codeator_description": "Platform to extract and export code from projects using languages (Python, C#, Java, C++, etc.) to be used as part of prompts in AI (ChatGPT, Claude, Deepseek, etc.).",
+    
+    // Image Processor
+    "image_processor_title": "Image Processor",
+    "image_processor_description": "Image processing application with filters, adjustments and transformations using React, Tailwind CSS, Vite and javascript.",
+    
+    // Club Access System
+    "club_access_title": "Access Control System",
+    "club_access_description": "Complete system for membership management and facility access control for a club.",
+    
+    // movilPOS
+    "movilpos_title": "Hades POS - Mobile Point of Sale",
+    "movilpos_description": "Point of sale application for mobile devices with inventory management and transactions.",
+
+    // Farmacia Hato Damas
+    "farmacia_title": "Hades POS - System of Sales",
+    "farmacia_description": "Complete management system with inventory control, sales, suppliers and statistical reports.",
+    
+    // Web Site
+    "website_title": "EZICOM - Corporate Website",
+    "website_description": "Informative web platform with responsive design, CMS integration and custom admin panel.",
+    
+    // Technologies
+    "tech_react": "React",
+    "tech_dotnet": ".NET",
+    "tech_entity": "Entity Framework",
+    "tech_django": "Django",
+    "tech_sql": "SQL Server",
+    "tech_csharp": "C#",
+    "tech_aspnet": "ASP.NET",
+    "tech_css": "CSS",
+    "tech_html": "HTML",
+    "tech_js": "JavaScript",
+    "tech_git": "Git",
+    "tech_github": "GitHub",
+    "tech_react_native": "React Native",
+    "tech_tailwind": "Tailwind CSS",
+    "tech_vite": "Vite",
+    "tech_python": "Python",
+    "tech_opencv": "OpenCV",
+    "tech_java": "Java",
+    "tech_spring": "Spring Boot",
+    "tech_rfid": "RFID",
+    "tech_mysql": "MySQL",
+    "tech_flutter": "Flutter",
+    "tech_firebase": "Firebase",
+    "tech_bootstrap": "Bootstrap",
+    "tech_postgresql": "PostgreSQL",
     
     // Contact
     "contact_title": "Contact Me",

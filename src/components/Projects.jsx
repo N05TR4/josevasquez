@@ -1,19 +1,73 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import porfolio from '../assets/img/projects/pofolio.jpg'
+import portfolioImg from '../assets/img/projects/pofolio.jpg';
+import codeatorImg from '../assets/img/projects/codeator.jpg';
+import imageProcessorImg from '../assets/img/projects/image-processor.jpg';
+import clubAccessImg from '../assets/img/projects/club-access.jpg';
+import movilPOSImg from '../assets/img/projects/movil-pos.jpg';
+import farmaciaImg from '../assets/img/projects/farmacia.jpg';
+import websiteImg from '../assets/img/projects/website.jpg';
 
 const Projects = () => {
   const { t } = useLanguage();
   
   const projects = [
     {
-      title: "Portfolio Personal",
-      description: "Un portfolio moderno y responsive construido con React, Vite y Tailwind CSS. Incluye modo oscuro/claro, internacionalización (español/inglés) y diseño optimizado para todos los dispositivos.",
-      technologies: "React, Vite, Tailwind CSS, Javascript",
+      titleKey: "portfolio_title",
+      descriptionKey: "portfolio_description",
+      technologies: `${t("tech_react")}, ${t("tech_vite")}, ${t("tech_tailwind")}`,
       githubUrl: "https://github.com/N05TR4/portfolio",
       liveUrl: "https://josevasquez-portfolio.netlify.app",
-      imageUrl: porfolio
+      imageUrl: portfolioImg
     },
-    // Puedes agregar más proyectos aquí si lo deseas
+    {
+      titleKey: "codeator_title",
+      descriptionKey: "codeator_description",
+      technologies: `${t("tech_react")}, ${t("tech_dotnet")}, ${t("tech_tailwind")}, ${t("tech_java")}, ${t("tech_spring")}, ${t("tech_python")}, ${t("tech_mysql")}`,
+      githubUrl: "https://github.com/N05TR4/Codeator",
+      liveUrl: "https://codeator.vercel.app/", // No tiene demo en vivo
+      imageUrl: codeatorImg
+    },
+    {
+      titleKey: "image_processor_title",
+      descriptionKey: "image_processor_description",
+      technologies: `${t("tech_react")}, ${t("tech_tailwind")}, ${t("tech_js")}`,
+      githubUrl: "https://github.com/N05TR4/image-processor",
+      liveUrl: null,
+       imageUrl: imageProcessorImg
+    },
+    {
+      titleKey: "club_access_title",
+      descriptionKey: "club_access_description",
+      technologies: `${t("tech_csharp")}, ${t("tech_dotnet")}, ${t("tech_entity")}, ${t("tech_mysql")}, ${t("tech_react")}`,
+      githubUrl: "https://github.com/N05TR4/ClubAccessSystem",
+      liveUrl: null,
+      imageUrl: clubAccessImg
+    },
+    {
+      titleKey: "movilpos_title",
+      descriptionKey: "movilpos_description",
+      technologies: `${t("tech_react_native")}, ${t("tech_firebase")}, ${t("tech_tailwind")}, ${t("tech_bootstrap")}`,
+      githubUrl: "https://github.com/N05TR4/movilPOS",
+      liveUrl: null,
+      imageUrl: movilPOSImg
+    },
+    {
+        titleKey: "farmacia_title",
+        descriptionKey: "farmacia_description",
+        technologies: `${t("tech_python")}, ${t("tech_django")}`,
+        githubUrl: "https://github.com/N05TR4/movilPOS",
+        liveUrl: null,
+        imageUrl: farmaciaImg
+
+    },
+    {
+      titleKey: "website_title",
+      descriptionKey: "website_description",
+      technologies: `${t("tech_python")}, ${t("tech_django")}, ${t("tech_bootstrap")}, ${t("tech_postgresql")}`,
+      githubUrl: "https://github.com/N05TR4/Web-Site",
+      liveUrl: "https://ezeicom-web.onrender.com/",
+      imageUrl: websiteImg
+    }
   ];
   
   return (
@@ -30,13 +84,17 @@ const Projects = () => {
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.imageUrl} 
-                  alt={project.title} 
+                  alt={t(project.titleKey)} 
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  {t(project.titleKey)}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {t(project.descriptionKey)}
+                </p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.split(',').map((tech, techIndex) => (
@@ -60,16 +118,14 @@ const Projects = () => {
                       {t("view_project")}
                     </a>
                   )}
-                  {project.githubUrl && (
-                    <a 
-                      href={project.githubUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      {t("view_code")}
-                    </a>
-                  )}
+                  <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    {t("view_code")}
+                  </a>
                 </div>
               </div>
             </div>

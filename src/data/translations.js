@@ -12,8 +12,8 @@ const translations = {
     
     // Hero
     "greeting": "Hola, soy",
-    "role": "Ingeniero de Software",
-    "hero_description": "Con más de 5 años de experiencia en el desarrollo de soluciones tecnológicas, enfocado en la creación y optimización de sistemas de gestión.",
+    "role": "Ingeniero de Software (Mid-Senior) / Desarrollador Full Stack (.NET & Python)",
+    "hero_description": "Con más de 4 años de experiencia desarrollando aplicaciones web y empresariales. Sólida experiencia en C#, .NET, Python, SQL y frameworks modernos. Experiencia comprobada en desarrollo backend, REST APIs, optimización de bases de datos, entornos en la nube y metodologías ágiles.",
     "download_cv": "Descargar CV",
     "contact_me": "Contáctame",
     
@@ -25,20 +25,20 @@ const translations = {
     // Experience
     "experience_title": "Experiencia Profesional",
     "current": "Actual",
-    "position_dgii": "Programador Full Stack",
+    "position_dgii": "Analista Programador Full Stack (.NET)",
     "company_dgii": "Dirección General de Impuestos Internos (DGII)",
     "date_dgii": "2022 - Presente",
-    "description_dgii_1": "Trabajé con un equipo de 5 desarrolladores y 1 Project Manager para entregar incrementos de productos front-end y back-end de los proyectos cada dos semanas según lo definido para la duración del sprint.",
+    "description_dgii_1": "Colaboré con un equipo multifuncional de 5 desarrolladores y 1 Project Manager para entregar funcionalidades front-end y back-end en sprints quincenales.",
     "description_dgii_2": "Resolví problemas técnicos determinando las causas raíz y creando soluciones y/o alternativas.",
-    "description_dgii_3": "Trabajé en la creación de nuevas aplicaciones y la refactorización de códigos de proyectos existentes utilizando C#, ASP.NET MVC, .NET 6 - 9, SQL y React.",
-    "description_dgii_4": "Utilicé Python para optimizar un proceso de carga masiva de datos que se realizaba manualmente.",
-    "description_dgii_5": "Investigué, identifiqué y comprendí lo que sucedió y encontré soluciones para incidentes recurrentes.",
+    "description_dgii_3": "Desarrollé y refactoricé aplicaciones web utilizando C#, ASP.NET MVC, .NET 6-9, SQL y React, mejorando el rendimiento y la mantenibilidad del sistema.",
+    "description_dgii_4": "Automaticé un proceso de carga masiva de datos utilizando Python, reduciendo el tiempo de procesamiento manual en un 70% y mejorando la precisión de los datos.",
+    "description_dgii_5": "Analicé incidentes recurrentes, identifiqué las causas raíz e implementé soluciones a largo plazo.",
     
-    "position_patridge": "Ingeniero de Software",
+    "position_patridge": "Ingeniero de Software (Python)",
     "company_patridge": "Patridge Consulting",
     "date_patridge": "2021 - 2022",
     "description_patridge_1": "Trabajé con 2 desarrolladores Web y 1 Project Manager utilizando la metodología Scrum para planificar los proyectos.",
-    "description_patridge_2": "Desarrollé nuevo software para optimizar procesos utilizando Python y Django.",
+    "description_patridge_2": "Construí nuevas soluciones de software utilizando Python y Django para optimizar procesos de negocio.",
     "description_patridge_3": "Resolví problemas técnicos determinando las causas raíz y creando soluciones.",
     
     // Skills
@@ -101,6 +101,15 @@ const translations = {
     "website_title": "EZICOM - Sitio Web Corporativo",
     "website_description": "Plataforma web informativa con diseño responsive, integración CMS y panel administrativo personalizado.",
     
+    // Categorías de Skills
+    "skill_category_languages": "Lenguajes",
+    "skill_category_frameworks": "Frameworks & Librerías",
+    "skill_category_databases": "Bases de Datos",
+    "skill_category_cloud": "Cloud & DevOps",
+    "skill_category_architecture": "Arquitectura & Patrones",
+    "skill_category_tools": "Herramientas",
+    "skill_category_methodologies": "Metodologías",
+
     // Tecnologías
     "tech_react": "React",
     "tech_dotnet": ".NET",
@@ -109,6 +118,7 @@ const translations = {
     "tech_sql": "SQL Server",
     "tech_csharp": "C#",
     "tech_aspnet": "ASP.NET",
+    "tech_aspnet_mvc": "ASP.NET MVC",
     "tech_css": "CSS",
     "tech_html": "HTML",
     "tech_js": "JavaScript",
@@ -127,6 +137,21 @@ const translations = {
     "tech_firebase": "Firebase",
     "tech_bootstrap": "Bootstrap",
     "tech_postgresql": "PostgreSQL",
+    "tech_docker": "Docker",
+    "tech_azure": "Azure",
+    "tech_azure_devops": "Azure DevOps",
+    "tech_linux": "Linux",
+    "tech_oracle_cloud": "Oracle Cloud",
+    "tech_google_cloud": "Google Cloud",
+    "tech_dokploy": "Dokploy",
+    "tech_clean_architecture": "Clean Architecture",
+    "tech_cqrs": "CQRS",
+    "tech_solid": "SOLID",
+    "tech_repository_pattern": "Repository Pattern",
+    "tech_design_patterns": "Design Patterns",
+    "tech_rest_api": "REST APIs",
+    "tech_scrum": "Scrum",
+    "tech_agile": "Agile",
 
     
     // Contact
@@ -156,8 +181,8 @@ const translations = {
     
     // Hero
     "greeting": "Hello, I'm",
-    "role": "Software Engineer",
-    "hero_description": "With over 5 years of experience in developing technological solutions, focused on creating and optimizing management systems.",
+    "role": "Software Engineer (Mid-Senior) / Full Stack (.NET & Python) Developer",
+    "hero_description": "With 4+ years of experience developing web and enterprise applications. Strong background in C#, .NET, Python, SQL, and modern frameworks. Proven experience in backend development, REST APIs, database optimization, cloud environments, and agile methodologies.",
     "download_cv": "Download CV",
     "contact_me": "Contact Me",
     
@@ -169,20 +194,20 @@ const translations = {
     // Experience
     "experience_title": "Professional Experience",
     "current": "Current",
-    "position_dgii": "Full Stack Programmer",
+    "position_dgii": "Programmer Analyst Full Stack (.NET)",
     "company_dgii": "Dirección General de Impuestos Internos (DGII)",
     "date_dgii": "2022 - Present",
-    "description_dgii_1": "Worked with a team of 5 developers and 1 Project Manager to deliver front-end and back-end product increments of the projects every two weeks as defined for sprint duration.",
+    "description_dgii_1": "Collaborated with a cross-functional team of 5 developers and 1 Project Manager to deliver front-end and back-end features in biweekly sprints.",
     "description_dgii_2": "Resolved technical issues by determining root causes and creating solutions and/or workarounds.",
-    "description_dgii_3": "Worked creating new apps and refactoring codes of existing projects using C#, ASP.NET MVC, .NET 6 - 9, SQL, and React.",
-    "description_dgii_4": "Used Python to optimize a massive data loading process that was done manually.",
-    "description_dgii_5": "Investigated, identified, and understood what happened and found solutions for recurring incidents.",
+    "description_dgii_3": "Developed and refactored web applications using C#, ASP.NET MVC, .NET 6-9, SQL and React, improving system performance and maintainability.",
+    "description_dgii_4": "Automated a massive data loading process using Python, reducing manual processing time by 70% and improving data accuracy.",
+    "description_dgii_5": "Analyzed recurring incidents, identified root causes, and implemented long-term solutions.",
     
-    "position_patridge": "Software Engineer",
+    "position_patridge": "Software Engineer (Python)",
     "company_patridge": "Patridge Consulting",
     "date_patridge": "2021 - 2022",
     "description_patridge_1": "Worked with 2 Web developers and 1 Project Manager using Scrum methodology to plan the projects.",
-    "description_patridge_2": "Developed new software to optimize processes using Python and Django.",
+    "description_patridge_2": "Built new software solutions using Python and Django to optimize business processes.",
     "description_patridge_3": "Resolved technical issues by determining root causes and creating solutions.",
     
     // Skills
@@ -246,6 +271,15 @@ const translations = {
     "website_title": "EZICOM - Corporate Website",
     "website_description": "Informative web platform with responsive design, CMS integration and custom admin panel.",
     
+    // Skill Categories
+    "skill_category_languages": "Languages",
+    "skill_category_frameworks": "Frameworks & Libraries",
+    "skill_category_databases": "Databases",
+    "skill_category_cloud": "Cloud & DevOps",
+    "skill_category_architecture": "Architecture & Patterns",
+    "skill_category_tools": "Tools",
+    "skill_category_methodologies": "Methodologies",
+
     // Technologies
     "tech_react": "React",
     "tech_dotnet": ".NET",
@@ -254,6 +288,7 @@ const translations = {
     "tech_sql": "SQL Server",
     "tech_csharp": "C#",
     "tech_aspnet": "ASP.NET",
+    "tech_aspnet_mvc": "ASP.NET MVC",
     "tech_css": "CSS",
     "tech_html": "HTML",
     "tech_js": "JavaScript",
@@ -272,6 +307,21 @@ const translations = {
     "tech_firebase": "Firebase",
     "tech_bootstrap": "Bootstrap",
     "tech_postgresql": "PostgreSQL",
+    "tech_docker": "Docker",
+    "tech_azure": "Azure",
+    "tech_azure_devops": "Azure DevOps",
+    "tech_linux": "Linux",
+    "tech_oracle_cloud": "Oracle Cloud",
+    "tech_google_cloud": "Google Cloud",
+    "tech_dokploy": "Dokploy",
+    "tech_clean_architecture": "Clean Architecture",
+    "tech_cqrs": "CQRS",
+    "tech_solid": "SOLID",
+    "tech_repository_pattern": "Repository Pattern",
+    "tech_design_patterns": "Design Patterns",
+    "tech_rest_api": "REST APIs",
+    "tech_scrum": "Scrum",
+    "tech_agile": "Agile",
     
     // Contact
     "contact_title": "Contact Me",

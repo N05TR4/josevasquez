@@ -56,7 +56,7 @@ const Projects = () => {
         descriptionKey: "farmacia_description",
         technologies: `${t("tech_python")}, ${t("tech_django")}`,
         githubUrl: "https://github.com/N05TR4/movilPOS",
-        liveUrl: null,
+        liveUrl: "https://hadespos.ddns.net/",
         imageUrl: farmaciaImg
 
     },

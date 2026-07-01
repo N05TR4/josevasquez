@@ -1,170 +1,105 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
 const Experience = () => {
   const { t } = useLanguage();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
+  const roles = [
+    {
+      position: t('position_dgii'),
+      company: t('company_dgii'),
+      context: t('context_dgii'),
+      date: t('date_dgii'),
+      current: true,
+      bullets: [
+        t('description_dgii_1'),
+        t('description_dgii_2'),
+        t('description_dgii_3'),
+        t('description_dgii_4'),
+        t('description_dgii_5'),
+      ],
+      tech: ['C#', 'ASP.NET Core', 'SQL Server', 'Oracle', 'Docker', 'Azure DevOps'],
+    },
+    {
+      position: t('position_loren'),
+      company: t('company_loren'),
+      context: t('context_loren'),
+      date: t('date_loren'),
+      bullets: [t('description_loren_1'), t('description_loren_2'), t('description_loren_3')],
+      tech: ['Node.js', 'Next.js', 'Python', 'Django', 'PostgreSQL'],
+    },
+    {
+      position: t('position_patridge'),
+      company: t('company_patridge'),
+      context: t('context_patridge'),
+      date: t('date_patridge'),
+      bullets: [t('description_patridge_1'), t('description_patridge_2')],
+      tech: ['Python', 'Django', 'Scrum'],
+    },
+  ];
 
   return (
-    <section id="experience" className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="section-container">
-        <h2 className="section-title">{t("experience_title")}</h2>
+    <section id="experience" className="scroll-mt-20 bg-petrol/[0.03] py-20 dark:bg-petrol-dark/20 sm:py-24">
+      <div className="shell">
+        <SectionHeader eyebrow={t('eyebrow_experience')} title={t('experience_title')} />
 
-        <motion.div
-          className="relative border-l-2 border-blue-500 ml-6 md:ml-12 pl-8 space-y-12 mt-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {/* DGII Experience */}
-          <motion.div
-            className="relative"
-            variants={itemVariants}
-          >
-            <motion.div
-              className="absolute -left-11 md:-left-14 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-gray-50 dark:border-gray-900"
-              whileHover={{ scale: 1.2 }}
-            />
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-200 dark:border-gray-700">
-              <div className="flex flex-wrap justify-between items-start mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">{t("position_dgii")}</h3>
-                  <h4 className="text-lg text-blue-600 dark:text-blue-400 mt-1">{t("company_dgii")}</h4>
-                </div>
-                <div className="mt-2 sm:mt-0 flex items-center gap-2">
-                  <span className="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-full">
-                    {t("date_dgii").split(" - ")[0]}
-                  </span>
-                  <span className="px-4 py-1.5 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-sm font-bold rounded-full flex items-center gap-1">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    {t("current")}
-                  </span>
-                </div>
+        <div className="relative ml-2 border-l border-line-light pl-8 dark:border-line sm:ml-4 sm:pl-10">
+          {roles.map((role, i) => (
+            <motion.article
+              key={i}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="relative pb-12 last:pb-0"
+            >
+              {/* node */}
+              <span className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center sm:-left-[51px]">
+                <span className="h-3 w-3 rounded-full border-2 border-amber bg-paper dark:bg-ink" />
+                {role.current && (
+                  <span className="absolute h-3 w-3 animate-ping rounded-full bg-amber/60" />
+                )}
+              </span>
+
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-display text-xl font-semibold">{role.position}</h3>
+                <span className="flex items-center gap-2 font-mono text-xs text-mist dark:text-paper/55">
+                  {role.date}
+                  {role.current && (
+                    <span className="rounded-full bg-amber/15 px-2 py-0.5 font-semibold text-amber">
+                      {t('current')}
+                    </span>
+                  )}
+                </span>
               </div>
+              <p className="mt-1 font-medium text-petrol dark:text-amber-soft">{role.company}</p>
+              <p className="mt-2 font-mono text-xs leading-relaxed text-mist dark:text-paper/50">
+                {role.context}
+              </p>
 
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_dgii_1")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_dgii_2")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_dgii_3")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_dgii_4")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_dgii_5")}</span>
-                </li>
+              <ul className="mt-4 space-y-2.5">
+                {role.bullets.map((b, bi) => (
+                  <li key={bi} className="flex gap-3 text-sm leading-relaxed text-mist dark:text-paper/75">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-amber/70" />
+                    <span>{b}</span>
+                  </li>
+                ))}
               </ul>
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {["C#", ".NET", "ASP.NET MVC", "SQL", "React", "Python"].map((tech, index) => (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {role.tech.map((tech) => (
                   <span
-                    key={index}
-                    className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+                    key={tech}
+                    className="rounded border border-line-light px-2 py-0.5 font-mono text-[11px] text-mist transition-colors hover:border-amber hover:text-amber dark:border-line dark:text-paper/60"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-            </div>
-          </motion.div>
-
-          {/* Patridge Consulting Experience */}
-          <motion.div
-            className="relative"
-            variants={itemVariants}
-          >
-            <motion.div
-              className="absolute -left-11 md:-left-14 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-gray-50 dark:border-gray-900"
-              whileHover={{ scale: 1.2 }}
-            />
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-200 dark:border-gray-700">
-              <div className="flex flex-wrap justify-between items-start mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">{t("position_patridge")}</h3>
-                  <h4 className="text-lg text-blue-600 dark:text-blue-400 mt-1">{t("company_patridge")}</h4>
-                </div>
-                <div className="mt-2 sm:mt-0">
-                  <span className="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-sm font-medium rounded-full">
-                    {t("date_patridge")}
-                  </span>
-                </div>
-              </div>
-
-              <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_patridge_1")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_patridge_2")}</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="inline-flex mr-3 mt-1.5">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-150 transition-transform"></div>
-                  </span>
-                  <span className="flex-1">{t("description_patridge_3")}</span>
-                </li>
-              </ul>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {["Python", "Django", "Scrum"].map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+            </motion.article>
+          ))}
+        </div>
       </div>
     </section>
   );

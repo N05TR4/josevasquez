@@ -1,183 +1,129 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Loader2 } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 const Contact = () => {
   const { t } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
     setTimeout(() => {
-      console.log('Form submitted:', formData);
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      
-      // Reset form data
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-      
-      // Reset success message after a delay
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
-    }, 1500);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    }, 1200);
   };
-  
+
+  const inputCls =
+    'w-full rounded-md border border-line-light bg-paper px-3 py-2.5 text-sm outline-none transition-colors focus:border-amber dark:border-line dark:bg-ink';
+
+  const info = [
+    { icon: Mail, label: t('email'), value: 'josevasquezdev21@gmail.com', href: 'mailto:josevasquezdev21@gmail.com' },
+    { icon: Phone, label: t('phone'), value: '+1 829.805.7683', href: 'tel:+18298057683' },
+    { icon: MapPin, label: t('location'), value: t('location_value') },
+  ];
+
   return (
-    <section id="contact" className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="section-container">
-        <h2 className="section-title">{t("contact_title")}</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">{t("contact_description")}</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
+    <section id="contact" className="scroll-mt-20 py-20 sm:py-24">
+      <div className="shell">
+        <SectionHeader eyebrow={t('eyebrow_contact')} title={t('contact_title')} />
+        <p className="-mt-6 mb-10 max-w-xl text-base text-mist dark:text-paper/70">
+          {t('contact_lead')}
+        </p>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_0.85fr]">
+          {/* Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-xl border border-line-light bg-paper p-6 dark:border-line dark:bg-petrol-dark/30"
+          >
+            <h3 className="mb-5 font-mono text-xs uppercase tracking-wide text-amber">
+              {t('contact_form_title')}
+            </h3>
+
+            <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  {t("name")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  required
-                />
+                <label htmlFor="name" className="mb-1 block text-sm font-medium">{t('name')}</label>
+                <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputCls} />
               </div>
-              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  {t("email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  required
-                />
+                <label htmlFor="email" className="mb-1 block text-sm font-medium">{t('email')}</label>
+                <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={inputCls} />
               </div>
-              
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  {t("message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="4"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  required
-                ></textarea>
+                <label htmlFor="message" className="mb-1 block text-sm font-medium">{t('message')}</label>
+                <textarea id="message" name="message" rows="4" required value={formData.message} onChange={handleChange} className={`${inputCls} resize-none`} />
               </div>
-              
-              <div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50"
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      {t("send")}...
-                    </span>
-                  ) : t("send")}
-                </button>
-              </div>
-              
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-amber px-4 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    {t('sending')}…
+                  </>
+                ) : (
+                  t('send')
+                )}
+              </button>
+
               {submitSuccess && (
-                <div className="p-3 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-md">
-                  {language === 'es' 
-                    ? '¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.' 
-                    : 'Thank you for your message! I will get back to you soon.'}
-                </div>
+                <p className="rounded-md border border-amber/40 bg-amber/10 px-3 py-2.5 text-sm text-amber">
+                  {t('contact_success')}
+                </p>
               )}
-            </form>
-          </div>
-          
+            </div>
+          </form>
+
+          {/* Info */}
           <div className="space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Información de Contacto</h3>
-              
+            <div className="rounded-xl border border-line-light bg-paper p-6 dark:border-line dark:bg-petrol-dark/30">
+              <h3 className="mb-5 font-mono text-xs uppercase tracking-wide text-mist dark:text-paper/55">
+                {t('contact_info_title')}
+              </h3>
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 pt-1">
-                    <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                {info.map(({ icon: Icon, label, value, href }) => (
+                  <div key={label} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-amber/10 text-amber">
+                      <Icon size={16} />
+                    </span>
+                    <div>
+                      <p className="font-mono text-[11px] uppercase tracking-wide text-mist">{label}</p>
+                      {href ? (
+                        <a href={href} className="break-all text-sm font-medium hover:text-amber">{value}</a>
+                      ) : (
+                        <p className="text-sm font-medium">{value}</p>
+                      )}
+                    </div>
                   </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
-                    <a href="mailto:josevasquez.l.0011@gmail.com" className="text-base text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
-                      josevasquez.l.0011@gmail.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 pt-1">
-                    <Phone className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{t("phone")}</p>
-                    <p className="text-base text-gray-800 dark:text-gray-200">829-805-7683</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 pt-1">
-                    <MapPin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{t("location")}</p>
-                    <p className="text-base text-gray-800 dark:text-gray-200">San Cristóbal, República Dominicana</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-            
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Redes Sociales</h3>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/jose-alberto-vasquez-lorenzo-8204b3255/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
+
+            <div className="rounded-xl border border-line-light bg-paper p-6 dark:border-line dark:bg-petrol-dark/30">
+              <h3 className="mb-4 font-mono text-xs uppercase tracking-wide text-mist dark:text-paper/55">
+                {t('contact_social_title')}
+              </h3>
+              <div className="flex gap-3">
+                <a href="https://www.linkedin.com/in/jose-alberto-vasquez-lorenzo-8204b3255/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-md border border-line-light text-mist transition-colors hover:border-amber hover:text-amber dark:border-line dark:text-paper/65">
+                  <Linkedin size={18} />
                 </a>
-                <a href="https://github.com/N05TR4" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                  </svg>
+                <a href="https://github.com/N05TR4" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="flex h-10 w-10 items-center justify-center rounded-md border border-line-light text-mist transition-colors hover:border-amber hover:text-amber dark:border-line dark:text-paper/65">
+                  <Github size={18} />
                 </a>
               </div>
             </div>

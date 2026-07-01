@@ -1,184 +1,191 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import imgn from '../assets/img/Alberto.png';
+import { Github, Linkedin, Mail, ArrowUpRight, Download } from 'lucide-react';
+
+const LINKS = {
+  linkedin: 'https://www.linkedin.com/in/jose-alberto-vasquez-lorenzo-8204b3255/',
+  github: 'https://github.com/N05TR4',
+  email: 'mailto:josevasquezdev21@gmail.com',
+};
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
 
 const Hero = () => {
   const { t } = useLanguage();
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
+  const fields = [
+    { k: 'name', v: 'Jose A. Vásquez L.' },
+    { k: 'role', v: t('json_role') },
+    { k: 'focus', v: t('json_focus') },
+    { k: 'scale', v: t('json_scale') },
+    { k: 'location', v: t('json_location') },
+    { k: 'experience', v: t('json_experience') },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
+  const metrics = [
+    { value: t('metric_years_value'), label: t('metric_years_label') },
+    { value: t('metric_records_value'), label: t('metric_records_label') },
+    { value: t('metric_automation_value'), label: t('metric_automation_label') },
+    { value: t('metric_products_value'), label: t('metric_products_label') },
+  ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900">
-      <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={itemVariants}>
-              <h2 className="text-xl font-medium text-blue-600 dark:text-blue-400">{t("greeting")}</h2>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mt-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-                José A. Vásquez L.
-              </h1>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 dark:text-gray-300 mt-3">
-                {t("role")}
-              </h3>
-            </motion.div>
+    <section
+      id="hero"
+      className="relative overflow-hidden border-b border-line-light dark:border-line"
+    >
+      {/* Ambient: faint petrol glow + dotted grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06] dark:opacity-[0.12]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
+          backgroundSize: '28px 28px',
+          color: '#0D3B36',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-petrol/20 blur-3xl dark:bg-petrol/40"
+      />
 
-            <motion.p
-              variants={itemVariants}
-              className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed"
-            >
-              {t("hero_description")}
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-4"
-            >
-              <a
-                href="#contact"
-                className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all shadow-md hover:shadow-lg"
-              >
-                {t("contact_me")}
-              </a>
-              <a
-                href="/JoseVasquezCV.pdf"
-                download
-                className="px-6 py-3 bg-white dark:bg-gray-800 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 font-medium rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transform hover:scale-105 transition-all shadow-md hover:shadow-lg"
-              >
-                {t("download_cv")}
-              </a>
-            </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex gap-6 pt-4"
-            >
-              <motion.a
-                href="https://www.linkedin.com/in/jose-alberto-vasquez-lorenzo-8204b3255/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-110 transition-all"
-                whileHover={{ y: -3 }}
-              >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </motion.a>
-              <motion.a
-                href="https://github.com/N05TR4"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-110 transition-all"
-                whileHover={{ y: -3 }}
-              >
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </motion.a>
-              <motion.a
-                href="mailto:josevasquez.l.0011@gmail.com"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-110 transition-all"
-                whileHover={{ y: -3 }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </motion.a>
-            </motion.div>
+      <div className="shell relative grid grid-cols-1 items-center gap-12 pb-16 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:pb-24 lg:pt-36">
+        {/* ---- Left: thesis ---- */}
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <motion.div variants={item} className="mb-6 flex items-center gap-2">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-amber" />
+            </span>
+            <span className="font-mono text-xs text-mist dark:text-paper/60">
+              {t('available')}
+            </span>
           </motion.div>
 
-          <motion.div
-            className="hidden lg:flex justify-center items-center"
-            variants={imageVariants}
-            initial="hidden"
-            animate="visible"
+          <motion.h1
+            variants={item}
+            className="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
           >
-            <div className="relative">
-              {/* Decorative circles */}
-              <motion.div
-                className="w-72 h-72 rounded-full bg-gradient-to-br from-blue-500/30 to-indigo-500/30 absolute -top-8 -left-8 blur-2xl"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 90, 0]
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-              <motion.div
-                className="w-64 h-64 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 absolute -bottom-8 -right-8 blur-2xl"
-                animate={{
-                  scale: [1.1, 1, 1.1],
-                  rotate: [90, 0, 90]
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
+            {t('hero_headline')}
+          </motion.h1>
 
-              {/* Image container */}
-              <div className="w-80 h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-2xl overflow-hidden relative z-10 border-4 border-white dark:border-gray-800">
-                <img
-                  src={imgn}
-                  alt="José Vásquez"
-                  className="w-full h-full object-cover"
-                />
+          <motion.p
+            variants={item}
+            className="mt-5 font-mono text-sm text-amber"
+          >
+            {t('role')}
+          </motion.p>
+
+          <motion.p
+            variants={item}
+            className="mt-6 max-w-xl text-base leading-relaxed text-mist dark:text-paper/70"
+          >
+            {t('hero_lead')}
+          </motion.p>
+
+          <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 rounded-md bg-amber px-5 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
+            >
+              {t('contact_me')}
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 rounded-md border border-ink/20 px-5 py-3 text-sm font-semibold transition-colors hover:border-amber hover:text-amber dark:border-paper/25"
+            >
+              {t('view_work')}
+            </a>
+            <a
+              href="/JoseVasquezCV.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-mist transition-colors hover:text-amber dark:text-paper/60"
+            >
+              <Download size={16} />
+              {t('download_cv')}
+            </a>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-8 flex items-center gap-5">
+            <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-mist transition-colors hover:text-amber dark:text-paper/60">
+              <Linkedin size={20} />
+            </a>
+            <a href={LINKS.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-mist transition-colors hover:text-amber dark:text-paper/60">
+              <Github size={20} />
+            </a>
+            <a href={LINKS.email} aria-label="Email" className="text-mist transition-colors hover:text-amber dark:text-paper/60">
+              <Mail size={20} />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* ---- Right: the signature — request/response panel ---- */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
+          className="overflow-hidden rounded-xl border border-line-light bg-white shadow-2xl shadow-petrol/5 dark:border-line dark:bg-petrol-dark/60 dark:shadow-black/40"
+        >
+          {/* request bar */}
+          <div className="flex items-center justify-between border-b border-line-light px-4 py-3 dark:border-line/80">
+            <span className="font-mono text-xs text-mist dark:text-paper/70">
+              <span className="text-amber">GET</span>{' '}
+              {t('hero_endpoint').replace('GET ', '')}
+            </span>
+            <span className="rounded-full bg-amber/15 px-2 py-0.5 font-mono text-[11px] font-semibold text-amber">
+              {t('hero_status')}
+            </span>
+          </div>
+
+          {/* response body */}
+          <div className="px-5 py-5 font-mono text-[13px] leading-relaxed">
+            <span className="text-mist dark:text-paper/40">{'{'}</span>
+            {fields.map((f) => (
+              <div key={f.k} className="pl-4">
+                <span className="text-petrol dark:text-amber-soft">"{f.k}"</span>
+                <span className="text-mist dark:text-paper/40">: </span>
+                <span className="text-ink dark:text-paper/90">"{f.v}"</span>
+                <span className="text-mist dark:text-paper/40">,</span>
               </div>
-
-              {/* Info badges */}
-              <motion.div
-                className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 rounded-lg shadow-lg px-6 py-3 z-20 border border-gray-200 dark:border-gray-700"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="font-semibold text-gray-800 dark:text-gray-200">Available for opportunities</span>
-                </div>
-              </motion.div>
+            ))}
+            <div className="pl-4">
+              <span className="text-petrol dark:text-amber-soft">"status"</span>
+              <span className="text-mist dark:text-paper/40">: </span>
+              <span className="inline-flex items-center gap-1.5 rounded bg-amber/15 px-1.5 text-amber">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
+                "{t('json_status')}"
+              </span>
             </div>
-          </motion.div>
+            <span className="text-mist dark:text-paper/40">{'}'}</span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ---- Metrics band ---- */}
+      <div className="border-t border-line-light dark:border-line">
+        <div className="shell grid grid-cols-2 divide-line-light dark:divide-line sm:grid-cols-4 sm:divide-x">
+          {metrics.map((m, i) => (
+            <div
+              key={i}
+              className={`px-2 py-6 sm:px-6 ${i < 2 ? 'border-b border-line-light dark:border-line sm:border-b-0' : ''}`}
+            >
+              <div className="font-display text-3xl font-bold text-ink dark:text-paper sm:text-4xl">
+                {m.value}
+              </div>
+              <div className="mt-1.5 font-mono text-[11px] leading-snug text-mist dark:text-paper/55">
+                {m.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

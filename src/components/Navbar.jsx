@@ -3,109 +3,107 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 
 const Navbar = ({ toggleDarkMode, darkMode }) => {
-  const { language, toggleLanguage, t } = useLanguage();
+  const { toggleLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((v) => !v);
 
   const navLinks = [
-    { name: t("home"), href: "#hero" },
-    { name: t("about"), href: "#about" },
-    { name: t("experience"), href: "#experience" },
-    { name: t("skills"), href: "#skills" },
-    { name: t("education"), href: "#education" },
-    { name: t("projects"), href: "#projects" },
-    { name: t("contact"), href: "#contact" },
+    { name: t('about'), href: '#about' },
+    { name: t('experience'), href: '#experience' },
+    { name: t('skills'), href: '#skills' },
+    { name: t('education'), href: '#education' },
+    { name: t('projects'), href: '#projects' },
+    { name: t('contact'), href: '#contact' },
   ];
 
+  const iconBtn =
+    'p-2 rounded-md text-mist hover:text-ink dark:hover:text-paper hover:bg-line-light dark:hover:bg-petrol/40 transition-colors';
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-md backdrop-blur-md' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="text-xl font-bold text-blue-600 dark:text-blue-400">
-              José A. Vásquez L.
-            </a>
-          </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-4">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
-            
-            <button 
-              onClick={toggleLanguage}
-              className="ml-2 px-3 py-1 rounded-md bg-blue-500 text-white font-medium hover:bg-blue-600 transition-colors"
-            >
-              {t("language")}
-            </button>
-            
-            <button 
-              onClick={toggleDarkMode}
-              className="ml-2 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-          </div>
-          
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button 
-              onClick={toggleLanguage}
-              className="mr-2 px-3 py-1 rounded-md bg-blue-500 text-white font-medium hover:bg-blue-600 transition-colors"
-            >
-              {t("language")}
-            </button>
-            
-            <button 
-              onClick={toggleDarkMode}
-              className="mr-2 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      {/* Mobile menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 shadow-lg">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'border-b border-line-light/80 bg-paper/85 backdrop-blur-md dark:border-line dark:bg-ink/85'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <div className="shell flex h-16 items-center justify-between">
+        {/* Brand mark — terminal prompt */}
+        <a href="#hero" className="group flex items-baseline gap-1.5 font-mono text-sm">
+          <span className="text-amber">jv</span>
+          <span className="text-mist group-hover:text-ink dark:group-hover:text-paper transition-colors">
+            @portfolio
+          </span>
+          <span className="text-amber animate-blink">_</span>
+        </a>
+
+        {/* Desktop links */}
+        <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.href}
               href={link.href}
-              onClick={toggleMenu}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800"
+              className="rounded-md px-3 py-2 font-mono text-sm text-mist transition-colors hover:text-ink dark:text-paper/70 dark:hover:text-paper"
             >
               {link.name}
             </a>
           ))}
+          <div className="mx-2 h-5 w-px bg-line-light dark:bg-line" />
+          <button
+            onClick={toggleLanguage}
+            className="rounded-md border border-line-light px-2.5 py-1 font-mono text-xs font-medium text-mist transition-colors hover:border-amber hover:text-amber dark:border-line dark:text-paper/70"
+            aria-label="Toggle language"
+          >
+            {t('language')}
+          </button>
+          <button onClick={toggleDarkMode} className={iconBtn} aria-label="Toggle theme">
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+        </div>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-1 md:hidden">
+          <button
+            onClick={toggleLanguage}
+            className="rounded-md border border-line-light px-2.5 py-1 font-mono text-xs font-medium text-mist dark:border-line dark:text-paper/70"
+            aria-label="Toggle language"
+          >
+            {t('language')}
+          </button>
+          <button onClick={toggleDarkMode} className={iconBtn} aria-label="Toggle theme">
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button onClick={toggleMenu} className={iconBtn} aria-label="Toggle menu">
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="border-t border-line-light bg-paper md:hidden dark:border-line dark:bg-ink">
+          <div className="shell flex flex-col py-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={toggleMenu}
+                className="rounded-md px-2 py-2.5 font-mono text-sm text-mist hover:bg-line-light hover:text-ink dark:text-paper/80 dark:hover:bg-petrol/40 dark:hover:text-paper"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

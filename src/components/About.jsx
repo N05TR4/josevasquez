@@ -1,59 +1,56 @@
-import { useLanguage } from "../contexts/LanguageContext";
-import imgn from '../assets/img/Alberto.png'
+import { useLanguage } from '../contexts/LanguageContext';
+import SectionHeader from './SectionHeader';
+import imgn from '../assets/img/Alberto.png';
 
 const About = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-16 bg-white dark:bg-gray-800">
-      <div className="section-container">
-        <h2 className="section-title">{t("about_title")}</h2>
+    <section id="about" className="scroll-mt-20 py-20 sm:py-24">
+      <div className="shell">
+        <SectionHeader eyebrow={t('eyebrow_about')} title={t('about_title')} />
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-          <div className="md:col-span-2">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img
-                src={imgn}
-                alt="José Vásquez - About"
-                className="w-full h-full object-cover"
-              />
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr] md:gap-14">
+          {/* Portrait — framed like a profile card */}
+          <div className="mx-auto w-full max-w-[260px] md:mx-0">
+            <div className="relative">
+              <div className="absolute -inset-2 rounded-xl border border-amber/40" aria-hidden />
+              <div className="relative overflow-hidden rounded-xl border border-line-light dark:border-line">
+                <img
+                  src={imgn}
+                  alt="Jose Vásquez"
+                  className="aspect-[4/5] w-full object-cover grayscale-[15%]"
+                />
+              </div>
             </div>
+            <p className="mt-4 font-mono text-[11px] text-mist dark:text-paper/50">
+              // {t('location_value')}
+            </p>
           </div>
 
-          <div className="md:col-span-3 space-y-4">
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {t("about_description")}
+          {/* Bio */}
+          <div>
+            <p className="font-display text-2xl font-medium leading-snug text-ink dark:text-paper sm:text-3xl">
+              {t('about_lead')}
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {t("about_description_2")}
-            </p>
+            <div className="mt-6 space-y-5 text-base leading-relaxed text-mist dark:text-paper/75">
+              <p>{t('about_p1')}</p>
+              <p>{t('about_p2')}</p>
+            </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                  <span className="font-medium text-gray-800 dark:text-gray-200">
-                    Email:
-                  </span>
-                </div>
+            <div className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line-light bg-line-light dark:border-line dark:bg-line sm:grid-cols-2">
+              <div className="bg-paper p-4 dark:bg-ink">
+                <p className="font-mono text-[11px] uppercase tracking-wide text-mist">{t('email')}</p>
                 <a
-                  href="mailto:josevasquez.l.0011@gmail.com"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400"
+                  href="mailto:josevasquezdev21@gmail.com"
+                  className="mt-1 block break-all text-sm font-medium hover:text-amber"
                 >
-                  josevasquez.l.0011@gmail.com
+                  josevasquezdev21@gmail.com
                 </a>
               </div>
-
-              <div>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                  <span className="font-medium text-gray-800 dark:text-gray-200">
-                    {t("phone")}:
-                  </span>
-                </div>
-                <span className="text-gray-600 dark:text-gray-400">
-                  829.805.7683
-                </span>
+              <div className="bg-paper p-4 dark:bg-ink">
+                <p className="font-mono text-[11px] uppercase tracking-wide text-mist">{t('phone')}</p>
+                <p className="mt-1 text-sm font-medium">+1 829.805.7683</p>
               </div>
             </div>
           </div>

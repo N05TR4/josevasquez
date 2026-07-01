@@ -1,116 +1,153 @@
 const translations = {
   es: {
-    // Navbar
+    // ---- Navbar ----
     "home": "Inicio",
-    "about": "Sobre Mí",
+    "about": "Perfil",
     "experience": "Experiencia",
-    "skills": "Habilidades",
-    "education": "Educación",
+    "skills": "Stack",
+    "education": "Formación",
     "projects": "Proyectos",
     "contact": "Contacto",
     "language": "EN",
-    
-    // Hero
-    "greeting": "Hola, soy",
-    "role": "Ingeniero de Software (Mid-Senior) / Desarrollador Full Stack (.NET & Python)",
-    "hero_description": "Con más de 4 años de experiencia desarrollando aplicaciones web y empresariales. Sólida experiencia en C#, .NET, Python, SQL y frameworks modernos. Experiencia comprobada en desarrollo backend, REST APIs, optimización de bases de datos, entornos en la nube y metodologías ágiles.",
+
+    // ---- Section eyebrows (mono path labels) ----
+    "eyebrow_about": "~/perfil",
+    "eyebrow_experience": "~/experiencia",
+    "eyebrow_skills": "~/stack",
+    "eyebrow_education": "~/formacion",
+    "eyebrow_projects": "~/proyectos",
+    "eyebrow_contact": "~/contacto",
+
+    // ---- Hero ----
+    "hero_endpoint": "GET /jose/perfil",
+    "hero_status": "200 OK",
+    "hero_headline": "Construyo sistemas que no se pueden caer.",
+    "hero_lead": "Ingeniero backend en la DGII —la autoridad tributaria nacional de República Dominicana— diseñando y desplegando APIs REST que procesan millones de registros fiscales cada día. Fundador de LorenSoftRD, con 3 productos SaaS en producción.",
+    "role": "Ingeniero Backend · .NET / C# · Sistemas de escala gubernamental",
+    "contact_me": "Hablemos",
+    "view_work": "Ver proyectos",
     "download_cv": "Descargar CV",
-    "contact_me": "Contáctame",
-    
-    // About
-    "about_title": "Sobre Mí",
-    "about_description": "Soy un Ingeniero de Software apasionado por crear soluciones tecnológicas robustas y eficientes. Con una sólida formación y experiencia en C#, .NET, Python y frameworks modernos, me especializo en el desarrollo full-stack y la optimización de procesos de negocio.",
-    "about_description_2": "Me gusta trabajar en equipo utilizando metodologías ágiles, resolver problemas complejos y mantenerme actualizado con las últimas tecnologías. Estoy comprometido con la entrega de software de alta calidad que cumpla con los requisitos del cliente y mejore la experiencia del usuario.",
-    
-    // Experience
+    "available": "Disponible para oportunidades",
+
+    // JSON response values (las claves del JSON quedan en inglés a propósito)
+    "json_role": "Ingeniero Backend (.NET / C#)",
+    "json_focus": "REST APIs · Clean Architecture · CQRS",
+    "json_scale": "Millones de registros fiscales/día",
+    "json_location": "San Cristóbal, DR · UTC-4 (remote-ready)",
+    "json_experience": "5+ años",
+    "json_status": "available",
+
+    // ---- Metrics band ----
+    "metric_years_value": "5+",
+    "metric_years_label": "Años entregando en producción",
+    "metric_records_value": "Millones",
+    "metric_records_label": "Registros fiscales procesados al día",
+    "metric_automation_value": "70%",
+    "metric_automation_label": "Tiempo de proceso manual eliminado",
+    "metric_products_value": "3",
+    "metric_products_label": "Productos SaaS en producción",
+
+    // ---- About ----
+    "about_title": "Perfil",
+    "about_lead": "Trabajo donde la fiabilidad no es negociable.",
+    "about_p1": "En la DGII diseño y despliego APIs REST y módulos backend en ASP.NET Core que procesan millones de registros fiscales al día sobre SQL Server y Oracle —sobre Clean Architecture, CQRS y SOLID, probados con xUnit y desplegados con Docker y CI/CD en Azure DevOps.",
+    "about_p2": "Fuera del sector público fundé LorenSoftRD, donde llevé 3 productos SaaS de cero a clientes que pagan —dueño de la arquitectura, el despliegue y el soporte de punta a punta. Trabajo en remoto, en inglés, alineado a EST, con mentalidad de builder enfocada en entregar.",
+
+    // ---- Experience ----
     "experience_title": "Experiencia Profesional",
     "current": "Actual",
-    "position_dgii": "Analista Programador Full Stack (.NET)",
-    "company_dgii": "Dirección General de Impuestos Internos (DGII)",
+
+    "position_dgii": "Analista Programador — Full Stack (.NET / C#)",
+    "company_dgii": "DGII — Dirección General de Impuestos Internos",
+    "context_dgii": "Remoto · Equipo multifuncional (5 devs + 1 PM) · Sprints quincenales · Sistemas críticos usados por cientos de miles de contribuyentes.",
     "date_dgii": "2022 - Presente",
-    "description_dgii_1": "Colaboré con un equipo multifuncional de 5 desarrolladores y 1 Project Manager para entregar funcionalidades front-end y back-end en sprints quincenales.",
-    "description_dgii_2": "Resolví problemas técnicos determinando las causas raíz y creando soluciones y/o alternativas.",
-    "description_dgii_3": "Desarrollé y refactoricé aplicaciones web utilizando C#, ASP.NET MVC, .NET 6-9, SQL y React, mejorando el rendimiento y la mantenibilidad del sistema.",
-    "description_dgii_4": "Automaticé un proceso de carga masiva de datos utilizando Python, reduciendo el tiempo de procesamiento manual en un 70% y mejorando la precisión de los datos.",
-    "description_dgii_5": "Analicé incidentes recurrentes, identifiqué las causas raíz e implementé soluciones a largo plazo.",
-    
+    "description_dgii_1": "Diseño y despliego APIs REST y módulos backend en ASP.NET Core (C#) que procesan millones de registros fiscales sobre SQL Server y Oracle, con Entity Framework Core, ADO.NET y PL/SQL.",
+    "description_dgii_2": "Lideré la migración de un sistema legado VS.NET a ASP.NET Core 8 aplicando Clean Architecture, CQRS y SOLID, asegurado con autenticación API Key y documentado con Swagger/OpenAPI.",
+    "description_dgii_3": "Diseñé y desplegué servicios en contenedores con Docker y pipelines CI/CD en Azure DevOps, reduciendo el tiempo de ciclo de despliegue.",
+    "description_dgii_4": "Construí pipelines de automatización en Python integrados con Oracle que redujeron el tiempo de proceso manual en un 70% y eliminaron el error humano.",
+    "description_dgii_5": "Escribo pruebas unitarias y de integración (xUnit, EF Core en memoria), hago code reviews y traduzco regulaciones fiscales a especificaciones técnicas junto a DBAs, QA y analistas.",
+
+    "position_loren": "Fundador & Lead Developer",
+    "company_loren": "LorenSoftRD",
+    "context_loren": "Software propio · 0→1 · 3 productos en producción con clientes que pagan.",
+    "date_loren": "2023 - Presente",
+    "description_loren_1": "Fundé LorenSoftRD y lancé 3 productos SaaS desde cero —todos en producción activa con clientes que pagan— siendo dueño de la arquitectura, el despliegue y el soporte.",
+    "description_loren_2": "Construí HadesPOS, un punto de venta cumpliendo normativa DGII con facturación electrónica y generación de recibos en PDF. Stack: Python · Django · PostgreSQL.",
+    "description_loren_3": "Lideré EOS (Ezeicom Operational System), una plataforma de gestión de flujos de trabajo sobre stack JavaScript moderno. Stack: Node.js · Express · Next.js · Prisma · PostgreSQL.",
+
     "position_patridge": "Ingeniero de Software (Python)",
-    "company_patridge": "Patridge Consulting",
+    "company_patridge": "Patridge Consulting (EE. UU.)",
+    "context_patridge": "100% remoto · Inglés · Async · Equipo Scrum (2 devs + 1 PM).",
     "date_patridge": "2021 - 2022",
-    "description_patridge_1": "Trabajé con 2 desarrolladores Web y 1 Project Manager utilizando la metodología Scrum para planificar los proyectos.",
-    "description_patridge_2": "Construí nuevas soluciones de software utilizando Python y Django para optimizar procesos de negocio.",
-    "description_patridge_3": "Resolví problemas técnicos determinando las causas raíz y creando soluciones.",
-    
-    // Skills
-    "skills_title": "Habilidades",
-    "soft_skills": "Habilidades Blandas",
-    "hard_skills": "Habilidades Técnicas",
+    "description_patridge_1": "Entregué soluciones web en un entorno totalmente remoto, en inglés y asíncrono con una consultora de EE. UU., construyendo servicios en Python/Django para procesos de negocio de clientes.",
+    "description_patridge_2": "Trabajé en un equipo Scrum reducido (2 devs + 1 PM) a través de husos horarios, con comunicación escrita clara y entregas consistentes por sprint.",
+
+    // ---- Skills ----
+    "skills_title": "Stack Técnico",
+    "soft_skills": "Cómo trabajo",
+    "hard_skills": "Tecnologías",
     "skill_teamwork": "Trabajo en equipo",
     "skill_critical": "Pensamiento crítico",
     "skill_communication": "Comunicación",
     "skill_problem": "Resolución de problemas",
     "skill_detail": "Atención al detalle",
     "skill_motivation": "Automotivación",
-    
-    // Education
-    "education_title": "Educación & Certificaciones",
-    "degree_title": "Ingeniería de Sistemas y Computación",
+
+    // ---- Education ----
+    "education_title": "Formación & Certificaciones",
+    "edu_academic": "Académico",
+    "edu_certs": "Certificaciones",
+    "degree_title": "Licenciatura en Ciencias de la Computación",
     "degree_institution": "Universidad Dominicana O&M",
     "degree_date": "2018 - 2022",
-    "master_title": "Maestría en Ingeniería de Sistemas, Especialidad en Gestión",
+    "master_title": "Maestría en Ingeniería de Sistemas (Gestión)",
     "master_institution": "Universidad Dominicana O&M",
     "master_date": "2025 - Presente",
-    "cert_csharp": "Certificación Avanzada en C# .Net",
+    "cert_azure": "Azure DevOps Fundamentals",
+    "cert_azure_institution": "TEOREMA",
+    "cert_azure_date": "2026",
+    "cert_csharp": "Certificación Avanzada en C# .NET",
     "cert_csharp_institution": "ITLA",
     "cert_csharp_date": "2024",
-    "cert_sql": "Certificación en Microsoft SQL Server",
+    "cert_sql": "Microsoft SQL Server",
     "cert_sql_institution": "ITLA",
     "cert_sql_date": "2024",
-    "cert_english": "Certificación Programa de Inmersión en Inglés",
+    "cert_infotep": "Facilitador INFOTEP — APIs REST con ASP.NET Core",
+    "cert_infotep_institution": "INFOTEP",
+    "cert_infotep_date": "2025",
+    "cert_english": "Programa de Inmersión en Inglés (B2+)",
     "cert_english_institution": "MESCYT",
     "cert_english_date": "2023",
-    
-    // Projects
-    "projects_title": "Proyectos",
-    "view_project": "Ver Proyecto",
-    "view_code": "Ver Código",
-    // Portfolio
-    "portfolio_title": "Portfolio Personal",
-    "portfolio_description": "Portfolio moderno con modo oscuro/claro y soporte para español/inglés, construido con React y Tailwind CSS.",
-    // Codeator
-    "codeator_title": "Codeator - Extractor y exportador de código Online",
-    "codeator_description": "Plataforma para extraer y exportar el código de proyectos usando lenguajes (Python, C#, Java, C++, etc.) para ser utilizado como parte de promts en IA (ChatGPT,Claude, Deepseek, etc).",
-    
-    // Image Processor
-    "image_processor_title": "Procesador de Imágenes",
-    "image_processor_description": "Aplicación para procesamiento de imágenes con filtros, ajustes y transformaciones, usando React, Tailwind CSS, Vite y javascript.",
-    
-    // Club Access System
-    "club_access_title": "Sistema de Control de Acceso",
-    "club_access_description": "Sistema completo para gestión de membresías y control de acceso a un club.",
-    
-    // movilPOS
-    "movilpos_title": "Hades POS - Sistema Punto de Venta Móvil",
-    "movilpos_description": "Aplicación de punto de venta para dispositivos móviles con gestión de inventario y transacciones.",
 
-    // Farmacia Hato Damas
-    "farmacia_title": "Hades POS - Sistema de ventas",
-    "farmacia_description": "Sistema de gestión completo con control de inventario, ventas, proveedores y reportes estadísticos.",
-    
-    // Web Site
-    "website_title": "EZICOM - Sitio Web Corporativo",
-    "website_description": "Plataforma web informativa con diseño responsive, integración CMS y panel administrativo personalizado.",
-    
-    // Categorías de Skills
+    // ---- Projects ----
+    "projects_title": "Proyectos Seleccionados",
+    "view_project": "Ver demo",
+    "view_code": "Ver código",
+    "live": "En vivo",
+    "portfolio_title": "Portfolio Personal",
+    "portfolio_description": "Portfolio con tema oscuro/claro y soporte español/inglés, construido con React y Tailwind CSS.",
+    "codeator_title": "Codeator — Extractor de código para prompts de IA",
+    "codeator_description": "Plataforma para extraer y exportar código de proyectos (Python, C#, Java, C++, etc.) listo para usar como prompt en IA (ChatGPT, Claude, Deepseek).",
+    "image_processor_title": "Procesador de Imágenes",
+    "image_processor_description": "App de procesamiento de imágenes con filtros, ajustes y transformaciones en el navegador.",
+    "club_access_title": "Sistema de Control de Acceso",
+    "club_access_description": "Gestión de membresías y control de acceso para un club, con backend .NET y frontend React.",
+    "movilpos_title": "Hades POS — Punto de Venta Móvil",
+    "movilpos_description": "Aplicación de punto de venta móvil con gestión de inventario y transacciones.",
+    "farmacia_title": "HadesPOS — Sistema de Ventas",
+    "farmacia_description": "Sistema de gestión completo con control de inventario, ventas, proveedores y reportes, cumpliendo normativa DGII.",
+    "website_title": "EZEICOM — Sitio Web Corporativo",
+    "website_description": "Plataforma web informativa con diseño responsive, integración CMS y panel administrativo a medida.",
+
+    // ---- Skill categories ----
     "skill_category_languages": "Lenguajes",
     "skill_category_frameworks": "Frameworks & Librerías",
     "skill_category_databases": "Bases de Datos",
     "skill_category_cloud": "Cloud & DevOps",
     "skill_category_architecture": "Arquitectura & Patrones",
-    "skill_category_tools": "Herramientas",
     "skill_category_methodologies": "Metodologías",
 
-    // Tecnologías
+    // ---- Technologies ----
     "tech_react": "React",
     "tech_dotnet": ".NET",
     "tech_entity": "Entity Framework",
@@ -153,134 +190,176 @@ const translations = {
     "tech_scrum": "Scrum",
     "tech_agile": "Agile",
 
-    
-    // Contact
-    "contact_title": "Contáctame",
-    "contact_description": "¿Tienes alguna pregunta o quieres trabajar juntos? ¡No dudes en contactarme!",
+    // ---- Contact ----
+    "contact_title": "Contacto",
+    "contact_lead": "¿Una vacante, un proyecto o una pregunta técnica? Respondo rápido.",
+    "contact_form_title": "Envíame un mensaje",
+    "contact_info_title": "Datos de contacto",
+    "contact_social_title": "Encuéntrame en línea",
     "name": "Nombre",
-    "email": "Correo Electrónico",
+    "email": "Correo",
     "message": "Mensaje",
-    "send": "Enviar Mensaje",
-    "location": "San Cristóbal, República Dominicana",
+    "send": "Enviar mensaje",
+    "sending": "Enviando",
+    "contact_success": "¡Gracias! Recibí tu mensaje y te respondo pronto.",
+    "location": "Ubicación",
+    "location_value": "San Cristóbal, República Dominicana",
     "phone": "Teléfono",
-    
-    // Footer
-    "copyright": "© 2025 José A. Vásquez L. Todos los derechos reservados.",
-    "built_with": "Construido con React, Vite y Tailwind CSS"
+
+    // ---- Footer ----
+    "footer_tagline": "Ingeniero backend (.NET / C#) — disponible para roles remotos.",
+    "copyright": "© 2026 Jose A. Vásquez L.",
+    "built_with": "Diseñado y construido con React, Vite y Tailwind CSS"
   },
+
   en: {
-    // Navbar
+    // ---- Navbar ----
     "home": "Home",
-    "about": "About",
+    "about": "Profile",
     "experience": "Experience",
-    "skills": "Skills",
+    "skills": "Stack",
     "education": "Education",
     "projects": "Projects",
     "contact": "Contact",
     "language": "ES",
-    
-    // Hero
-    "greeting": "Hello, I'm",
-    "role": "Software Engineer (Mid-Senior) / Full Stack (.NET & Python) Developer",
-    "hero_description": "With 4+ years of experience developing web and enterprise applications. Strong background in C#, .NET, Python, SQL, and modern frameworks. Proven experience in backend development, REST APIs, database optimization, cloud environments, and agile methodologies.",
+
+    // ---- Section eyebrows ----
+    "eyebrow_about": "~/about",
+    "eyebrow_experience": "~/experience",
+    "eyebrow_skills": "~/stack",
+    "eyebrow_education": "~/credentials",
+    "eyebrow_projects": "~/projects",
+    "eyebrow_contact": "~/contact",
+
+    // ---- Hero ----
+    "hero_endpoint": "GET /jose/profile",
+    "hero_status": "200 OK",
+    "hero_headline": "I build systems that can't afford to go down.",
+    "hero_lead": "Backend engineer at DGII — the Dominican Republic's national tax authority — designing and shipping REST APIs that process millions of fiscal records every day. Founder of LorenSoftRD, with 3 SaaS products in production.",
+    "role": "Backend Engineer · .NET / C# · Government-scale systems",
+    "contact_me": "Get in touch",
+    "view_work": "See projects",
     "download_cv": "Download CV",
-    "contact_me": "Contact Me",
-    
-    // About
-    "about_title": "About Me",
-    "about_description": "I'm a Software Engineer passionate about creating robust and efficient technological solutions. With a solid background and experience in C#, .NET, Python, and modern frameworks, I specialize in full-stack development and business process optimization.",
-    "about_description_2": "I enjoy working in teams using agile methodologies, solving complex problems, and staying updated with the latest technologies. I'm committed to delivering high-quality software that meets client requirements and enhances user experience.",
-    
-    // Experience
+    "available": "Available for opportunities",
+
+    "json_role": "Backend Engineer (.NET / C#)",
+    "json_focus": "REST APIs · Clean Architecture · CQRS",
+    "json_scale": "Millions of fiscal records/day",
+    "json_location": "San Cristóbal, DR · UTC-4 (remote-ready)",
+    "json_experience": "5+ years",
+    "json_status": "available",
+
+    // ---- Metrics band ----
+    "metric_years_value": "5+",
+    "metric_years_label": "Years shipping production",
+    "metric_records_value": "Millions",
+    "metric_records_label": "Fiscal records processed daily",
+    "metric_automation_value": "70%",
+    "metric_automation_label": "Manual processing time cut",
+    "metric_products_value": "3",
+    "metric_products_label": "SaaS products in production",
+
+    // ---- About ----
+    "about_title": "Profile",
+    "about_lead": "I work where reliability is non-negotiable.",
+    "about_p1": "At DGII I design and ship REST APIs and back-end modules in ASP.NET Core that process millions of fiscal records daily across SQL Server and Oracle — built on Clean Architecture, CQRS and SOLID, tested with xUnit, shipped via Docker and Azure DevOps CI/CD.",
+    "about_p2": "Outside the public sector I founded LorenSoftRD, where I took 3 SaaS products from zero to paying clients — owning architecture, deployment and support end to end. I work remotely in English, EST-aligned, with a builder's bias for shipping.",
+
+    // ---- Experience ----
     "experience_title": "Professional Experience",
     "current": "Current",
-    "position_dgii": "Programmer Analyst Full Stack (.NET)",
-    "company_dgii": "Dirección General de Impuestos Internos (DGII)",
+
+    "position_dgii": "Programmer Analyst — Full Stack (.NET / C#)",
+    "company_dgii": "DGII — Dirección General de Impuestos Internos",
+    "context_dgii": "Remote · Cross-functional team (5 devs + 1 PM) · Biweekly sprints · Mission-critical systems used by hundreds of thousands of taxpayers.",
     "date_dgii": "2022 - Present",
-    "description_dgii_1": "Collaborated with a cross-functional team of 5 developers and 1 Project Manager to deliver front-end and back-end features in biweekly sprints.",
-    "description_dgii_2": "Resolved technical issues by determining root causes and creating solutions and/or workarounds.",
-    "description_dgii_3": "Developed and refactored web applications using C#, ASP.NET MVC, .NET 6-9, SQL and React, improving system performance and maintainability.",
-    "description_dgii_4": "Automated a massive data loading process using Python, reducing manual processing time by 70% and improving data accuracy.",
-    "description_dgii_5": "Analyzed recurring incidents, identified root causes, and implemented long-term solutions.",
-    
+    "description_dgii_1": "Design and ship REST APIs and back-end modules in ASP.NET Core (C#) processing millions of fiscal records over SQL Server and Oracle, with Entity Framework Core, ADO.NET and PL/SQL.",
+    "description_dgii_2": "Led the migration of a legacy VS.NET system to ASP.NET Core 8 applying Clean Architecture, CQRS and SOLID, secured with API-key auth and fully documented with Swagger/OpenAPI.",
+    "description_dgii_3": "Architected and deployed containerized services with Docker and CI/CD pipelines on Azure DevOps, reducing deployment cycle time.",
+    "description_dgii_4": "Built Python automation pipelines integrating with Oracle that reduced manual data processing time by 70% and eliminated human error.",
+    "description_dgii_5": "Write unit and integration tests (xUnit, in-memory EF Core), run code reviews, and translate fiscal regulations into technical specs with DBAs, QA and analysts.",
+
+    "position_loren": "Founder & Lead Developer",
+    "company_loren": "LorenSoftRD",
+    "context_loren": "Own software company · 0→1 · 3 products in production with paying clients.",
+    "date_loren": "2023 - Present",
+    "description_loren_1": "Founded LorenSoftRD and shipped 3 SaaS products from scratch — all in active production with paying clients — owning architecture, deployment and support.",
+    "description_loren_2": "Built HadesPOS, a DGII-compliant point-of-sale with electronic invoicing and PDF receipt generation. Stack: Python · Django · PostgreSQL.",
+    "description_loren_3": "Led EOS (Ezeicom Operational System), a workflow management platform on a modern JavaScript stack. Stack: Node.js · Express · Next.js · Prisma · PostgreSQL.",
+
     "position_patridge": "Software Engineer (Python)",
-    "company_patridge": "Patridge Consulting",
+    "company_patridge": "Patridge Consulting (U.S.)",
+    "context_patridge": "Fully remote · English · Async · Scrum team (2 devs + 1 PM).",
     "date_patridge": "2021 - 2022",
-    "description_patridge_1": "Worked with 2 Web developers and 1 Project Manager using Scrum methodology to plan the projects.",
-    "description_patridge_2": "Built new software solutions using Python and Django to optimize business processes.",
-    "description_patridge_3": "Resolved technical issues by determining root causes and creating solutions.",
-    
-    // Skills
-    "skills_title": "Skills",
-    "soft_skills": "Soft Skills",
-    "hard_skills": "Hard Skills",
+    "description_patridge_1": "Delivered web solutions in a fully remote, English-language, async environment with a U.S.-based consulting firm, building Python/Django services for client business processes.",
+    "description_patridge_2": "Worked in a small Scrum team (2 devs + 1 PM) across time zones, with clear written communication and consistent sprint delivery.",
+
+    // ---- Skills ----
+    "skills_title": "Technical Stack",
+    "soft_skills": "How I work",
+    "hard_skills": "Technologies",
     "skill_teamwork": "Teamwork",
-    "skill_critical": "Critical Thinking",
+    "skill_critical": "Critical thinking",
     "skill_communication": "Communication",
-    "skill_problem": "Problem Solving",
-    "skill_detail": "Attention to Detail",
+    "skill_problem": "Problem solving",
+    "skill_detail": "Attention to detail",
     "skill_motivation": "Self-motivation",
-    
-    // Education
+
+    // ---- Education ----
     "education_title": "Education & Certifications",
-    "degree_title": "Bachelor's Degree in Computer Science",
+    "edu_academic": "Academic",
+    "edu_certs": "Certifications",
+    "degree_title": "Bachelor's in Computer Science",
     "degree_institution": "Universidad Dominicana O&M",
     "degree_date": "2018 - 2022",
-    "master_title": "Master's Degree in Systems Engineering, Management Major",
+    "master_title": "Master's in Systems Engineering (Management)",
     "master_institution": "Universidad Dominicana O&M",
     "master_date": "2025 - Present",
-    "cert_csharp": "Advanced C# .Net Certification",
+    "cert_azure": "Azure DevOps Fundamentals",
+    "cert_azure_institution": "TEOREMA",
+    "cert_azure_date": "2026",
+    "cert_csharp": "Advanced C# .NET",
     "cert_csharp_institution": "ITLA",
     "cert_csharp_date": "2024",
-    "cert_sql": "Microsoft SQL Server Certifications",
+    "cert_sql": "Microsoft SQL Server",
     "cert_sql_institution": "ITLA",
     "cert_sql_date": "2024",
-    "cert_english": "English Immersion Program Certification",
+    "cert_infotep": "INFOTEP Facilitator — REST APIs with ASP.NET Core",
+    "cert_infotep_institution": "INFOTEP",
+    "cert_infotep_date": "2025",
+    "cert_english": "English Immersion Program (B2+)",
     "cert_english_institution": "MESCYT",
     "cert_english_date": "2023",
-    
-    // Projects
-    "projects_title": "Projects",
-    "view_project": "View Project",
-    "view_code": "View Code",
-    // Portfolio
-    "portfolio_title": "Personal Portfolio",
-    "portfolio_description": "Modern portfolio with dark/light mode and English/Spanish support, built with React and Tailwind CSS.",
-    
-    // Codeator
-    "codeator_title": "Codeator - Online Compiler",
-    "codeator_description": "Platform to extract and export code from projects using languages (Python, C#, Java, C++, etc.) to be used as part of prompts in AI (ChatGPT, Claude, Deepseek, etc.).",
-    
-    // Image Processor
-    "image_processor_title": "Image Processor",
-    "image_processor_description": "Image processing application with filters, adjustments and transformations using React, Tailwind CSS, Vite and javascript.",
-    
-    // Club Access System
-    "club_access_title": "Access Control System",
-    "club_access_description": "Complete system for membership management and facility access control for a club.",
-    
-    // movilPOS
-    "movilpos_title": "Hades POS - Mobile Point of Sale",
-    "movilpos_description": "Point of sale application for mobile devices with inventory management and transactions.",
 
-    // Farmacia Hato Damas
-    "farmacia_title": "Hades POS - System of Sales",
-    "farmacia_description": "Complete management system with inventory control, sales, suppliers and statistical reports.",
-    
-    // Web Site
-    "website_title": "EZICOM - Corporate Website",
-    "website_description": "Informative web platform with responsive design, CMS integration and custom admin panel.",
-    
-    // Skill Categories
+    // ---- Projects ----
+    "projects_title": "Selected Projects",
+    "view_project": "View demo",
+    "view_code": "View code",
+    "live": "Live",
+    "portfolio_title": "Personal Portfolio",
+    "portfolio_description": "Portfolio with dark/light theme and English/Spanish support, built with React and Tailwind CSS.",
+    "codeator_title": "Codeator — Code extractor for AI prompts",
+    "codeator_description": "Platform to extract and export project code (Python, C#, Java, C++, etc.) ready to drop into AI prompts (ChatGPT, Claude, Deepseek).",
+    "image_processor_title": "Image Processor",
+    "image_processor_description": "In-browser image processing app with filters, adjustments and transformations.",
+    "club_access_title": "Access Control System",
+    "club_access_description": "Membership management and facility access control for a club, with a .NET backend and React frontend.",
+    "movilpos_title": "Hades POS — Mobile Point of Sale",
+    "movilpos_description": "Mobile point-of-sale app with inventory management and transactions.",
+    "farmacia_title": "HadesPOS — Sales System",
+    "farmacia_description": "Complete management system with inventory control, sales, suppliers and reports, DGII-compliant.",
+    "website_title": "EZEICOM — Corporate Website",
+    "website_description": "Informative web platform with responsive design, CMS integration and a custom admin panel.",
+
+    // ---- Skill categories ----
     "skill_category_languages": "Languages",
     "skill_category_frameworks": "Frameworks & Libraries",
     "skill_category_databases": "Databases",
     "skill_category_cloud": "Cloud & DevOps",
     "skill_category_architecture": "Architecture & Patterns",
-    "skill_category_tools": "Tools",
     "skill_category_methodologies": "Methodologies",
 
-    // Technologies
+    // ---- Technologies ----
     "tech_react": "React",
     "tech_dotnet": ".NET",
     "tech_entity": "Entity Framework",
@@ -322,20 +401,27 @@ const translations = {
     "tech_rest_api": "REST APIs",
     "tech_scrum": "Scrum",
     "tech_agile": "Agile",
-    
-    // Contact
-    "contact_title": "Contact Me",
-    "contact_description": "Have a question or want to work together? Feel free to reach out!",
+
+    // ---- Contact ----
+    "contact_title": "Contact",
+    "contact_lead": "A role, a project, or a technical question? I reply fast.",
+    "contact_form_title": "Send me a message",
+    "contact_info_title": "Contact details",
+    "contact_social_title": "Find me online",
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "send": "Send Message",
-    "location": "San Cristóbal, Dominican Republic",
+    "send": "Send message",
+    "sending": "Sending",
+    "contact_success": "Thanks! I got your message and will get back to you soon.",
+    "location": "Location",
+    "location_value": "San Cristóbal, Dominican Republic",
     "phone": "Phone",
-    
-    // Footer
-    "copyright": "© 2025 José A. Vásquez L. All rights reserved.",
-    "built_with": "Built with React, Vite, and Tailwind CSS"
+
+    // ---- Footer ----
+    "footer_tagline": "Backend engineer (.NET / C#) — available for remote roles.",
+    "copyright": "© 2026 Jose A. Vásquez L.",
+    "built_with": "Designed and built with React, Vite and Tailwind CSS"
   }
 };
 

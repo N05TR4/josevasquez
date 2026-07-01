@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -8,26 +8,34 @@ import Education from './components/Education'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import { useLanguage } from './contexts/LanguageContext'
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const { language } = useLanguage();
+  // Dark-first: load dark unless the visitor previously chose light.
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return localStorage.getItem('theme') !== 'light'
+  })
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.toggle('dark', darkMode)
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light')
+  }, [darkMode])
+
+  const toggleDarkMode = () => setDarkMode((v) => !v)
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''}`}>
+    <div className="min-h-screen bg-paper text-ink transition-colors duration-300 dark:bg-ink dark:text-paper">
       <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Education />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Skills />
+        <Education />
+        <Projects />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )
